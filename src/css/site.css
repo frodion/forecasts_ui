@@ -1,0 +1,355 @@
+html, body {
+    font-family: 'Nunito', Arial, sans-serif;
+}
+.forecast-enter {
+    opacity: 0.01;
+}
+
+.forecast-enter.forecast-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.forecast-leave {
+    opacity: 1;
+}
+
+.forecast-leave.forecast-leave-active {
+    opacity: 0.01;
+    transition: opacity 200ms ease-in;
+}
+
+.requests-header {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.requests-header__title {
+    margin-right: 28px;
+}
+
+.requests-header__button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0,0,0,.25);
+    cursor: pointer;
+    outline: none;
+}
+
+.requests-header__button-icon {
+    margin-right: 7px;
+}
+
+.requests-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.requests-list__header {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: rgba(0,0,0,.3);
+}
+
+.requests-list__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.requests-list__row {
+    display: flex;
+    flex-direction: column;
+}
+
+.requests-list__row--active {
+    background-color: rgba(240, 242, 243, 0.5);
+}
+
+.requests-list__row:hover {
+    background-color: rgba(240, 242, 243, 0.5);
+}
+
+.requests-list__row:hover .request-list__chat-btn,
+.requests-list__row:hover .request-list__remove-btn {
+    visibility: visible;
+}
+
+.requests-list__row--active .request-list__chat-btn,
+.requests-list__row--active .request-list__remove-btn {
+    visibility: visible;
+}
+
+.requests-list__row--active .requests-list__row-top::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 1.5%;
+    right: 1.5%;
+    height: 1px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.requests-list__header .requests-list__row:hover {
+    background: none;
+}
+
+.requests-list__row-top {
+    position: relative;
+    cursor: pointer;
+    padding: 17px 15px;
+}
+
+.request-list__row-bot {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.requests-list__row--header {
+    flex-direction: row;
+    padding: 17px 15px;
+}
+
+.requests-list__row-inner, .requests-list__row-top, .requests-list__row-bot {
+    display: flex;
+}
+
+.requests-list__row--forecast {
+    align-items: center;
+}
+
+.requests-list__status-icon {
+    width: 4%;
+}
+
+.requests-list__request-number {
+    width: 20%;
+    font-weight: bold;
+}
+
+.requests-list__header .requests-list__request-number {
+    font-weight: 600;
+}
+
+.requests-list__date {
+    width: 15%;
+}
+
+.requests-list__type {
+    width: 20%;
+}
+
+.requests-list__status {
+    width: 15%;
+}
+
+.request-list__controls {
+    display: flex;
+    margin-left: auto;
+}
+
+.request-list__chat-btn,
+.request-list__remove-btn,
+.request-list__open-btn {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: none;
+    outline: none;
+    color: rgb(155, 169, 173);
+    cursor: pointer;
+}
+
+.request-list__chat-btn,
+.request-list__remove-btn {
+    visibility: hidden;
+}
+
+.request-list__open-btn {
+    margin-right: auto;
+}
+
+.forecast {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    font-size: 13px;
+}
+
+.forecast__container {
+    display: flex;
+    justify-content: center;
+}
+
+.forecast__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+    text-align: center;
+    font-size: 13px;
+}
+
+.forecast__item-title {
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.forecast__item-date {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.forecast__item-time {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateX(50%);
+    color: rgba(0,0,0,.3);
+    padding-bottom: 8px;
+    justify-content: center;
+}
+
+.forecast__item-note {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    right: 50%;
+    z-index: 12;
+}
+
+.forecast__item-note-text {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.forecast__item-note-content {
+    font-weight: 400;
+}
+
+.forecast__item-note-header {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.forecast__item-note-back {
+    display: flex;
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    right: 50%;
+    z-index: 11;
+    background: gray;
+}
+
+.forecast__item:first-child::before {
+    display: none;
+}
+
+.forecast__item::before {
+    content: '';
+    position: absolute;
+    left: -50%;
+    bottom: -2px;
+    display: block;
+    width: 50%;
+    height: 2px;
+    border-bottom: 2px solid;
+    z-index: 9;
+}
+
+.forecast__item::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    bottom: -4px;
+    right: calc(50% - 4px);
+    z-index: 10;
+}
+
+.forecast__item--done {
+    color: rgb(72, 179, 89);
+    border-color: rgb(72, 179, 89);
+}
+
+.forecast__item--done::after {
+    background: rgb(72, 179, 89);
+}
+
+.forecast__item--done::before {
+    border-color: rgb(72, 179, 89);
+}
+
+.forecast__item--doing {
+    color: rgb(237, 175, 76);
+    border-color: rgb(237, 175, 76);
+}
+
+.forecast__item--doing::after {
+    background: rgb(237, 175, 76);
+}
+
+.forecast__item--doing::before {
+    border-color: rgb(237, 175, 76);
+}
+
+.forecast__item--todo {
+    color: rgb(127,132,134);
+    border-color: rgb(168,174,180);
+}
+
+.forecast__item--todo::after {
+    background: rgb(168,174,180);
+}
+
+.forecast__item--todo::before {
+    border-color: rgb(168,174,180);
+}
+
+.forecast-caption {
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast-caption__top,
+.forecast-caption__bot,
+.forecast-caption__progress {
+    width: 100%;
+}
+
+.forecast-caption__top {
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: rgba(0,0,0,.3);
+}
+
+.forecast-caption__progress {
+    display: flex;
+    background: rgb(210, 215, 219);
+}
+
+.forecast-caption__progress-inner {
+    display: flex;
+    height: 4px;
+}
